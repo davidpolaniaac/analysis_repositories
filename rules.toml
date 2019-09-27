@@ -176,6 +176,21 @@ description = "Twilio API key"
 regex = '''(?i)twilio(.{0,20})?['\"][0-9a-f]{32}['\"]'''
 tags = ["key", "twilio"]
 
+[[rules]]
+description = "IP Address"
+regex = '''^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'''
+tags = ["ip", "ip Address"]
+
+[[rules]]
+description = "Addresses"
+regex = '''https?:\/\/(w{3}\.)?.*.corp\/?$'''
+tags = ["addresses"]
+
+[[rules]]
+description = "Password"
+regex = '''(?i)(()?pass(word)?)\W*[:=,]\W*.+$'''
+tags = ["password"]
+
 [whitelist]
 files = [
   "(.*?)(jpg|gif|doc|pdf|bin)$"
