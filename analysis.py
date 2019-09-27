@@ -126,11 +126,11 @@ def main():
 
         if args.do_github:
             repositories = get_repositories_github(word_list)
-            print("Total repositories: " + type(repositories) )
+            print("Total repositories: " + str(len(repositories)) )
             analysis(repositories)
         elif args.do_azdev:
             repositories = get_repositories_azdev(word_list)
-            print("Total repositories: " + type(repositories) )
+            print("Total repositories: " + str(len(repositories)) )
             analysis(repositories)
         elif args.do_gitlab:
             print("Pending contributions :), Sorry")
