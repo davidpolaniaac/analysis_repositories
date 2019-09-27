@@ -28,12 +28,18 @@ pyhton analysis.py -help
 
 configure environment variable according to platform, example for azure: devops
 
-- AZDEV_USERNAME
-- AZDEV_TOKEN
+- TOKEN
 - AZDEV_ORGANIZATION
 - AZDEV_PROJECT_ID
 
 ---
+
+# Private repository
+
+```bash
+export TOKEN=""
+
+```
 
 In the directory report the report is generated
 

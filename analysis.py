@@ -24,10 +24,7 @@ def github_repo_to_standar_repo(repository):
     return repository
 
 def azdev_repo_to_standar_repo(repository):
-    USERNAME = os.environ.get('AZDEV_USERNAME')
-    TOKEN = os.environ.get('AZDEV_TOKEN')
-    url = repository['remoteUrl'].replace("https://", "https://{}:{}@".format(USERNAME, TOKEN), 1)
-    repository = Repository(repository['id'], repository['remoteUrl'], repository['name'])
+    repository = Repository(repository['id'], repository['webUrl'], repository['name'])
     return repository
 
 def download_image():
@@ -68,19 +65,18 @@ def get_repositories_github(word_list):
 
 def get_repositories_azdev(word_list):
 
-    USERNAME = os.environ.get('AZDEV_USERNAME')
-    TOKEN = os.environ.get('AZDEV_TOKEN')
+    TOKEN = os.environ.get('TOKEN')
     ORGANIZATION = os.getenv('AZDEV_ORGANIZATION')
     PROJECT = os.getenv('AZDEV_PROJECT_ID')
 
     if len(word_list) == 0:
         print("The list is empty")
-        response = request_url(constants.AZDEV_API_REPOSITORIES.format(USERNAME,TOKEN,ORGANIZATION,PROJECT))
+        response = request_url(constants.AZDEV_API_REPOSITORIES.format(TOKEN,ORGANIZATION,PROJECT))
         repositories = map(azdev_repo_to_standar_repo, response['value']) 
 
     else:
         print("The list is not empty")
-        response = request_url(constants.AZDEV_API_REPOSITORIES.format(USERNAME,TOKEN,ORGANIZATION,PROJECT))
+        response = request_url(constants.AZDEV_API_REPOSITORIES.format(TOKEN,ORGANIZATION,PROJECT))
         result = map(azdev_repo_to_standar_repo, response['value']) 
         repositories = [x for x in result if any( s in x.name for s in word_list)]
 
@@ -99,7 +95,8 @@ def clean_and_create_report_directory():
 def run_analysis(repository):
 
     print(repository.name)
-    run_docker = 'docker run --rm -v {}:/data zricethezav/gitleaks --report=/data/report/{}.json --config=/data/rules.toml -r {} --threads=$(($(nproc --all) - 1))'.format(path, repository.id, repository.url)
+    TOKEN = os.environ.get('TOKEN')
+    run_docker = 'docker run --rm -v {}:/data -e GITHUB_TOKEN={} zricethezav/gitleaks --report=/data/report/{}.json --config=/data/rules.toml -r {} --threads=$(($(nproc --all) - 1))'.format(path, TOKEN, repository.id, repository.url)
     os.system(run_docker)
 
 def analysis(repositories):
@@ -116,8 +113,6 @@ def main():
         parser.add_argument('--azdev', dest="do_azdev", action="store_true", 
                            help='Enable azure devops code analysis'
                            'you must create the following environment variable'
-                           'AZDEV_USERNAME'
-                           'AZDEV_TOKEN'
                            'AZDEV_ORGANIZATION'
                            'AZDEV_PROJECT_ID')
         parser.add_argument('--bitbucket', dest="do_bitbucket", action="store_true", help="Enable bitbucket analysis")
@@ -131,9 +126,11 @@ def main():
 
         if args.do_github:
             repositories = get_repositories_github(word_list)
+            print("Total repositories: " + len(repositories) )
             analysis(repositories)
         elif args.do_azdev:
             repositories = get_repositories_azdev(word_list)
+            print("Total repositories: " + repositories)
             analysis(repositories)
         elif args.do_gitlab:
             print("Pending contributions :), Sorry")
