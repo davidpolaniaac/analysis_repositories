@@ -41,6 +41,8 @@ export TOKEN=""
 
 ```
 
+---
+
 In the directory report the report is generated
 
 for more information see the help
