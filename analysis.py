@@ -28,7 +28,7 @@ def azdev_repo_to_standar_repo(repository):
     return repository
 
 def download_image():
-    docker_pull = 'docker pull zricethezav/gitleaks'
+    docker_pull = 'docker pull dpolania/gitleaks'
     os.system(docker_pull)
 
 def request_url(url):
@@ -96,7 +96,12 @@ def run_analysis(repository):
 
     print(repository.name)
     TOKEN = os.environ.get('TOKEN')
-    run_docker = 'docker run --rm -v {}:/data -e GITHUB_TOKEN={} zricethezav/gitleaks --report=/data/report/{}.json --config=/data/rules.toml -r {} --threads=$(($(nproc --all) - 1))'.format(path, TOKEN, repository.id, repository.url)
+
+    if "AZDEV_ORGANIZATION" in os.environ:
+        run_docker = 'docker run --rm -v {}:/data -e AZURE_DEVOPS_TOKEN={} dpolania/gitleaks --report=/data/report/{}.json --config=/data/rules.toml -r {} --threads=$(($(nproc --all) - 1))'.format(path, TOKEN, repository.id, repository.url)
+    else:
+        run_docker = 'docker run --rm -v {}:/data dpolania/gitleaks --report=/data/report/{}.json --config=/data/rules.toml -r {} --threads=$(($(nproc --all) - 1))'.format(path, repository.id, repository.url)
+
     os.system(run_docker)
 
 def analysis(repositories):
