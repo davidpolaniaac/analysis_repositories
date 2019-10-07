@@ -130,13 +130,13 @@ def main():
         parser.set_defaults(words=os.path.join(path,constants.WORDS))
         args = parser.parse_args()
         clean_and_create_report_directory()
-        #download_image()
+        download_image()
         word_list = [line.rstrip('\n') for line in open(args.words)]
 
         if args.do_github:
             repositories = get_repositories_github(word_list)
             print("Total repositories: " + str(len(repositories)) )
-            #analysis(repositories)
+            analysis(repositories)
         elif args.do_azdev:
             repositories = get_repositories_azdev(word_list)
             print("Total repositories: " + str(len(repositories)) )
