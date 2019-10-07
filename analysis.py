@@ -48,6 +48,8 @@ def total_item(url, key):
 
 def get_repositories_github(word_list):
     
+    repositories = []
+
     if len(word_list) == 0:
         print("The list is empty")
         response = request_url(constants.GITHUB_URI_API_REPOSITORIES)
@@ -58,8 +60,10 @@ def get_repositories_github(word_list):
         query = "+".join(word_list)
         url_base = constants.GITHUB_URI_API_SEACRH + query 
         total_count = total_item(url_base, constants.GITHUB_TOTAL_KEY)
-        response = request_url(url_base+'&page=1&per_page='+str(total_count))
-        repositories = map(github_repo_to_standar_repo, response['items']) 
+        pages = int(total_count / 100) + (total_count % 100 > 0)
+        for x in range(0, pages):
+            response = request_url(url_base+'&page='+str(x+1)+'&per_page=100')
+            repositories += map(github_repo_to_standar_repo, response['items']) 
 
     return repositories
 
@@ -126,13 +130,13 @@ def main():
         parser.set_defaults(words=os.path.join(path,constants.WORDS))
         args = parser.parse_args()
         clean_and_create_report_directory()
-        download_image()
+        #download_image()
         word_list = [line.rstrip('\n') for line in open(args.words)]
 
         if args.do_github:
             repositories = get_repositories_github(word_list)
             print("Total repositories: " + str(len(repositories)) )
-            analysis(repositories)
+            #analysis(repositories)
         elif args.do_azdev:
             repositories = get_repositories_azdev(word_list)
             print("Total repositories: " + str(len(repositories)) )
