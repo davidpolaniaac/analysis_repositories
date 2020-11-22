@@ -1,359 +1,324 @@
 title = "Configuration rules"
 
 [[rules]]
-	description = "AWS Manager ID"
-	regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
-	tags = ["key", "AWS"]
+description = "AWS Manager ID"
+regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+tags = ["key", "AWS"]
 
 [[rules]]
-	description = "AWS Secret Key"
-	regex = '''(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]'''
-	tags = ["key", "AWS"]
+description = "AWS Secret Key"
+regex = '''(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]'''
+tags = ["key", "AWS"]
 
 [[rules]]
-	description = "AWS MWS key"
-	regex = '''amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
-	tags = ["key", "AWS", "MWS"]
+description = "AWS MWS key"
+regex = '''amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
+tags = ["key", "AWS", "MWS"]
 
 [[rules]]
-	description = "Facebook Secret Key"
-	regex = '''(?i)(facebook|fb)(.{0,20})?(?-i)['\"][0-9a-f]{32}['\"]'''
-	tags = ["key", "Facebook"]
+description = "Facebook Secret Key"
+regex = '''(?i)(facebook|fb)(.{0,20})?(?-i)['\"][0-9a-f]{32}['\"]'''
+tags = ["key", "Facebook"]
 
 [[rules]]
-	description = "Facebook Client ID"
-	regex = '''(?i)(facebook|fb)(.{0,20})?['\"][0-9]{13,17}['\"]'''
-	tags = ["key", "Facebook"]
+description = "Facebook Client ID"
+regex = '''(?i)(facebook|fb)(.{0,20})?['\"][0-9]{13,17}['\"]'''
+tags = ["key", "Facebook"]
 
 [[rules]]
-	description = "Twitter Secret Key"
-	regex = '''(?i)twitter(.{0,20})?[0-9a-z]{35,44}'''
-	tags = ["key", "Twitter"]
+description = "Twitter Secret Key"
+regex = '''(?i)twitter(.{0,20})?[0-9a-z]{35,44}'''
+tags = ["key", "Twitter"]
 
 [[rules]]
-	description = "Twitter Client ID"
-	regex = '''(?i)twitter(.{0,20})?[0-9a-z]{18,25}'''
-	tags = ["client", "Twitter"]
+description = "Twitter Client ID"
+regex = '''(?i)twitter(.{0,20})?[0-9a-z]{18,25}'''
+tags = ["client", "Twitter"]
 
 [[rules]]
-	description = "Github"
-	regex = '''(?i)github(.{0,20})?(?-i)[0-9a-zA-Z]{35,40}'''
-	tags = ["key", "Github"]
+description = "Github"
+regex = '''(?i)github(.{0,20})?(?-i)[0-9a-zA-Z]{35,40}'''
+tags = ["key", "Github"]
 
 [[rules]]
-	description = "LinkedIn Client ID"
-	regex = '''(?i)linkedin(.{0,20})?(?-i)[0-9a-z]{12}'''
-	tags = ["client", "LinkedIn"]
+description = "LinkedIn Client ID"
+regex = '''(?i)linkedin(.{0,20})?(?-i)[0-9a-z]{12}'''
+tags = ["client", "LinkedIn"]
 
 [[rules]]
-	description = "LinkedIn Secret Key"
-	regex = '''(?i)linkedin(.{0,20})?[0-9a-z]{16}'''
-	tags = ["secret", "LinkedIn"]
+description = "LinkedIn Secret Key"
+regex = '''(?i)linkedin(.{0,20})?[0-9a-z]{16}'''
+tags = ["secret", "LinkedIn"]
 
 [[rules]]
-	description = "Slack"
-	regex = '''xox[baprs]-([0-9a-zA-Z]{10,48})?'''
-	tags = ["key", "Slack"]
+description = "Slack"
+regex = '''xox[baprs]-([0-9a-zA-Z]{10,48})?'''
+tags = ["key", "Slack"]
 
 [[rules]]
-	description = "Asymmetric Private Key"
-	regex = '''-----BEGIN ((EC|PGP|DSA|RSA|OPENSSH) )?PRIVATE KEY( BLOCK)?-----'''
-	tags = ["key", "AsymmetricPrivateKey"]
+description = "Asymmetric Private Key"
+regex = '''-----BEGIN ((EC|PGP|DSA|RSA|OPENSSH) )?PRIVATE KEY( BLOCK)?-----'''
+tags = ["key", "AsymmetricPrivateKey"]
 
 [[rules]]
-	description = "Google API key"
-	regex = '''AIza[0-9A-Za-z\\-_]{35}'''
-	tags = ["key", "Google"]
+description = "Google API key"
+regex = '''AIza[0-9A-Za-z\\-_]{35}'''
+tags = ["key", "Google"]
 
 [[rules]]
-	description = "Google (GCP) Service Account"
-	regex = '''"type": "service_account"'''
-	tags = ["key", "Google"]
+description = "Google (GCP) Service Account"
+regex = '''"type": "service_account"'''
+tags = ["key", "Google"]
 
 [[rules]]
-	description = "Heroku API key"
-	regex = '''(?i)heroku(.{0,20})?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
-	tags = ["key", "Heroku"]
+description = "Heroku API key"
+regex = '''(?i)heroku(.{0,20})?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
+tags = ["key", "Heroku"]
 
 [[rules]]
-	description = "MailChimp API key"
-	regex = '''(?i)(mailchimp|mc)(.{0,20})?[0-9a-f]{32}-us[0-9]{1,2}'''
-	tags = ["key", "Mailchimp"]
+description = "MailChimp API key"
+regex = '''(?i)(mailchimp|mc)(.{0,20})?[0-9a-f]{32}-us[0-9]{1,2}'''
+tags = ["key", "Mailchimp"]
 
 [[rules]]
-	description = "Mailgun API key"
-	regex = '''((?i)(mailgun|mg)(.{0,20})?)?key-[0-9a-z]{32}'''
-	tags = ["key", "Mailgun"]
+description = "Mailgun API key"
+regex = '''((?i)(mailgun|mg)(.{0,20})?)?key-[0-9a-z]{32}'''
+tags = ["key", "Mailgun"]
 
 [[rules]]
-	description = "PayPal Braintree access token"
-	regex = '''access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}'''
-	tags = ["key", "Paypal"]
+description = "PayPal Braintree access token"
+regex = '''access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}'''
+tags = ["key", "Paypal"]
 
 [[rules]]
-	description = "Picatic API key"
-	regex = '''sk_live_[0-9a-z]{32}'''
-	tags = ["key", "Picatic"]
+description = "Picatic API key"
+regex = '''sk_live_[0-9a-z]{32}'''
+tags = ["key", "Picatic"]
 
 [[rules]]
-	description = "SendGrid API Key"
-	regex = '''SG\.[\w_]{16,32}\.[\w_]{16,64}'''
-	tags = ["key", "SendGrid"]
+description = "SendGrid API Key"
+regex = '''SG\.[\w_]{16,32}\.[\w_]{16,64}'''
+tags = ["key", "SendGrid"]
 
 [[rules]]
-	description = "Slack Webhook"
-	regex = '''https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}'''
-	tags = ["key", "slack"]
+description = "Slack Webhook"
+regex = '''https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}'''
+tags = ["key", "slack"]
 
 [[rules]]
-	description = "Stripe API key"
-	regex = '''(?i)stripe(.{0,20})?[sr]k_live_[0-9a-zA-Z]{24}'''
-	tags = ["key", "Stripe"]
+description = "Stripe API key"
+regex = '''(?i)stripe(.{0,20})?[sr]k_live_[0-9a-zA-Z]{24}'''
+tags = ["key", "Stripe"]
 
 [[rules]]
-	description = "Square access token"
-	regex = '''sq0atp-[0-9A-Za-z\-_]{22}'''
-	tags = ["key", "square"]
+description = "Square access token"
+regex = '''sq0atp-[0-9A-Za-z\-_]{22}'''
+tags = ["key", "square"]
 
 [[rules]]
-	description = "Square OAuth secret"
-	regex = '''sq0csp-[0-9A-Za-z\\-_]{43}'''
-	tags = ["key", "square"]
+description = "Square OAuth secret"
+regex = '''sq0csp-[0-9A-Za-z\\-_]{43}'''
+tags = ["key", "square"]
 
 [[rules]]
-	description = "Twilio API key"
-	regex = '''(?i)twilio(.{0,20})?SK[0-9a-f]{32}'''
-	tags = ["key", "twilio"]
+description = "Twilio API key"
+regex = '''(?i)twilio(.{0,20})?SK[0-9a-f]{32}'''
+tags = ["key", "twilio"]
 
 [[rules]]
-	description = "AWS cred file info"
-	regex = '''(?i)(aws_access_key_id|aws_secret_access_key)(.{0,20})?=.[0-9a-zA-Z\/+]{20,40}'''
-	tags = ["AWS"]
+description = "AWS cred file info"
+regex = '''(?i)(aws_access_key_id|aws_secret_access_key)(.{0,20})?=.[0-9a-zA-Z\/+]{20,40}'''
+tags = ["AWS"]
 
 [[rules]]
-	description = "Twitter Secret Key"
-	regex = '''(?i)twitter(.{0,20})?['\"][0-9a-z]{35,44}['\"]'''
-	tags = ["key", "Twitter"]
+description = "Twitter Secret Key"
+regex = '''(?i)twitter(.{0,20})?['\"][0-9a-z]{35,44}['\"]'''
+tags = ["key", "Twitter"]
 
 [[rules]]
-	description = "Twitter Client ID"
-	regex = '''(?i)twitter(.{0,20})?['\"][0-9a-z]{18,25}['\"]'''
-	tags = ["client", "Twitter"]
+description = "Twitter Client ID"
+regex = '''(?i)twitter(.{0,20})?['\"][0-9a-z]{18,25}['\"]'''
+tags = ["client", "Twitter"]
 
 [[rules]]
-	description = "Github"
-	regex = '''(?i)github(.{0,20})?(?-i)['\"][0-9a-zA-Z]{35,40}['\"]'''
-	tags = ["key", "Github"]
+description = "Github"
+regex = '''(?i)github(.{0,20})?(?-i)['\"][0-9a-zA-Z]{35,40}['\"]'''
+tags = ["key", "Github"]
 
 [[rules]]
-	description = "LinkedIn Client ID"
-	regex = '''(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]'''
-	tags = ["client", "LinkedIn"]
+description = "LinkedIn Client ID"
+regex = '''(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]'''
+tags = ["client", "LinkedIn"]
 
 [[rules]]
-	description = "LinkedIn Secret Key"
-	regex = '''(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]'''
-	tags = ["secret", "LinkedIn"]
+description = "LinkedIn Secret Key"
+regex = '''(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]'''
+tags = ["secret", "LinkedIn"]
 
 [[rules]]
-	description = "EC"
-	regex = '''-----BEGIN EC PRIVATE KEY-----'''
-	tags = ["key", "EC"]
+description = "EC"
+regex = '''-----BEGIN EC PRIVATE KEY-----'''
+tags = ["key", "EC"]
 
 [[rules]]
-	description = "Heroku API key"
-	regex = '''(?i)heroku(.{0,20})?['"][0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}['"]'''
-	tags = ["key", "Heroku"]
+description = "Heroku API key"
+regex = '''(?i)heroku(.{0,20})?['"][0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}['"]'''
+tags = ["key", "Heroku"]
 
 [[rules]]
-	description = "MailChimp API key"
-	regex = '''(?i)(mailchimp|mc)(.{0,20})?['"][0-9a-f]{32}-us[0-9]{1,2}['"]'''
-	tags = ["key", "Mailchimp"]
+description = "MailChimp API key"
+regex = '''(?i)(mailchimp|mc)(.{0,20})?['"][0-9a-f]{32}-us[0-9]{1,2}['"]'''
+tags = ["key", "Mailchimp"]
 
 [[rules]]
-	description = "Mailgun API key"
-	regex = '''(?i)(mailgun|mg)(.{0,20})?['"][0-9a-z]{32}['"]'''
-	tags = ["key", "Mailgun"]
+description = "Mailgun API key"
+regex = '''(?i)(mailgun|mg)(.{0,20})?['"][0-9a-z]{32}['"]'''
+tags = ["key", "Mailgun"]
 
 [[rules]]
-	description = "Stripe API key"
-	regex = '''(?i)stripe(.{0,20})?['\"][sk|rk]_live_[0-9a-zA-Z]{24}'''
-	tags = ["key", "Stripe"]
+description = "Stripe API key"
+regex = '''(?i)stripe(.{0,20})?['\"][sk|rk]_live_[0-9a-zA-Z]{24}'''
+tags = ["key", "Stripe"]
 
 [[rules]]
-	description = "Twilio API key"
-	regex = '''(?i)twilio(.{0,20})?['\"][0-9a-f]{32}['\"]'''
-	tags = ["key", "twilio"]
+description = "Twilio API key"
+regex = '''(?i)twilio(.{0,20})?['\"][0-9a-f]{32}['\"]'''
+tags = ["key", "twilio"]
 
 [[rules]]
-	description = "Env Var"
-	regex = '''(?i)(apikey|secret|key|api|password|pass|pw|host)=[0-9a-zA-Z-_.{}]{4,120}'''
+description = "Env Var"
+regex = '''(?i)(apikey|secret|key|api|password|pass|pw|host)=[0-9a-zA-Z-_.{}]{4,120}'''
 
 [[rules]]
-	description = "Port"
-	regex = '''(?i)port(.{0,4})?[0-9]{1,10}'''
-	[rules.allowlist]
-		regexes = ['''(?i)port ''']
-		description = "ignore export "
+description = "Email"
+regex = '''[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'''
+tags = ["email"]
 
 [[rules]]
-	description = "Email"
-	regex = '''[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'''
-	tags = ["email"]
-	[rules.allowlist]
-		files = ['''(?i)bashrc''']
-		description = "ignore bashrc emails"
+description = "Generic Credential"
+regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|password|apikey|apitoken|apitokens)(.{0,20})?['|"]([0-9a-zA-Z-_\/+!{}/=]{4,120})['|"]'''
+tags = ["key", "API", "generic"]
 
 [[rules]]
-	description = "Generic Credential"
-	regex = '''(?i)(dbpasswd|dbuser|dbname|dbhost|api_key|apikey|secret|key|api|password|user|guid|hostname|pw|auth)(.{0,20})?['|"]([0-9a-zA-Z-_\/+!{}/=]{4,120})['|"]'''
-	tags = ["key", "API", "generic"]
-	# ignore leaks with specific identifiers like slack and aws
-	[rules.allowlist]
-		description = "ignore slack, mailchimp, aws"
-		regexes = [
-		    '''xox[baprs]-([0-9a-zA-Z]{10,48})''',
-		    '''(?i)(.{0,20})?['"][0-9a-f]{32}-us[0-9]{1,2}['"]''',
-		    '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
-		]
+description = "WP-Config"
+regex='''define(.{0,20})?(DB_CHARSET|NONCE_SALT|LOGGED_IN_SALT|AUTH_SALT|NONCE_KEY|DB_HOST|DB_PASSWORD|AUTH_KEY|SECURE_AUTH_KEY|LOGGED_IN_KEY|DB_NAME|DB_USER)(.{0,20})?['|"].{10,120}['|"]'''
+tags = ["key", "API", "generic"]
 
 [[rules]]
-	description = "High Entropy"
-	regex = '''[0-9a-zA-Z-_!{}/=]{4,120}'''
-  	file = '''(?i)(dump.sql|high-entropy-misc.txt)$'''
-	tags = ["entropy"]
-    [[rules.Entropies]]
-        Min = "4.3"
-        Max = "7.0"
-    [rules.allowlist]
-        description = "ignore ssh key and pems"
-        files = ['''(pem|ppk|env)$''']
-        paths = ['''(.*)?ssh''']
+description = "Any application.properties file"
+filetypes = ["application.properties"]
+tags = ["properties"]
+severity = "high"
 
 [[rules]]
-	description = "Potential bash var"
-	regex='''(?i)(=)([0-9a-zA-Z-_!{}=]{4,120})'''
-	tags = ["key", "bash", "API", "generic"]
-        [[rules.Entropies]]
-            Min = "3.5"
-            Max = "4.5"
-            Group = "1"
+description = "Files with keys and credentials"
+file = '''(?i)(id_rsa|passwd|id_rsa.pub|pgpass|pem|key|shadow)'''
 
 [[rules]]
-	description = "WP-Config"
-	regex='''define(.{0,20})?(DB_CHARSET|NONCE_SALT|LOGGED_IN_SALT|AUTH_SALT|NONCE_KEY|DB_HOST|DB_PASSWORD|AUTH_KEY|SECURE_AUTH_KEY|LOGGED_IN_KEY|DB_NAME|DB_USER)(.{0,20})?['|"].{10,120}['|"]'''
-	tags = ["key", "API", "generic"]
+description = "PKCS8"
+regex = '''-----BEGIN PRIVATE KEY-----'''
+tags = ["key", "PKCS8"]
 
 [[rules]]
-  description = "Any application.properties file"
-  filetypes = ["application.properties"]
-  tags = ["properties"]
-  severity = "high"
+description = "RSA"
+regex = '''-----BEGIN RSA PRIVATE KEY-----'''
+tags = ["key", "RSA"]
 
 [[rules]]
-  description = "Files with keys and credentials"
-  file = '''(?i)(id_rsa|passwd|id_rsa.pub|pgpass|pem|key|shadow)'''
+description = "SSH"
+regex = '''-----BEGIN OPENSSH PRIVATE KEY-----'''
+tags = ["key", "SSH"]
 
 [[rules]]
-  description = "PKCS8"
-  regex = '''-----BEGIN PRIVATE KEY-----'''
-  tags = ["key", "PKCS8"]
+description = "PGP"
+regex = '''-----BEGIN PGP PRIVATE KEY BLOCK-----'''
+tags = ["key", "PGP"]
 
 [[rules]]
-  description = "RSA"
-  regex = '''-----BEGIN RSA PRIVATE KEY-----'''
-  tags = ["key", "RSA"]
+description = "Facebook access token"
+regex = '''EAACEdEose0cBA[0-9A-Za-z]+'''
+tags = ["key", "Facebook"]
 
 [[rules]]
-  description = "SSH"
-  regex = '''-----BEGIN OPENSSH PRIVATE KEY-----'''
-  tags = ["key", "SSH"]
+description = "Generic API key"
+regex = '''(?i)(api_key|apikey)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
+tags = ["key", "API", "generic"]
 
 [[rules]]
-  description = "PGP"
-  regex = '''-----BEGIN PGP PRIVATE KEY BLOCK-----'''
-  tags = ["key", "PGP"]
+description = "Generic Secret"
+regex = '''(?i)secret(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
+tags = ["key", "Secret", "generic"]
 
 [[rules]]
-  description = "Facebook access token"
-  regex = '''EAACEdEose0cBA[0-9A-Za-z]+'''
-  tags = ["key", "Facebook"]
+description = "Google Cloud Platform API key"
+regex = '''(?i)(google|gcp|youtube|drive|yt)(.{0,20})?['\"][AIza[0-9a-z\\-_]{35}]['\"]'''
+tags = ["key", "Google", "GCP"]
 
 [[rules]]
-  description = "Generic API key"
-  regex = '''(?i)(api_key|apikey)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
-  tags = ["key", "API", "generic"]
+description = "Google OAuth"
+regex = '''(?i)(google|gcp|auth)(.{0,20})?['"][0-9]+-[0-9a-z_]{32}\.apps\.googleusercontent\.com['"]'''
+tags = ["key", "Google", "OAuth"]
 
 [[rules]]
-  description = "Generic Secret"
-  regex = '''(?i)secret(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
-  tags = ["key", "Secret", "generic"]
+description = "Google OAuth access token"
+regex = '''ya29\.[0-9A-Za-z\-_]+'''
+tags = ["key", "Google", "OAuth"]
 
 [[rules]]
-  description = "Google Cloud Platform API key"
-  regex = '''(?i)(google|gcp|youtube|drive|yt)(.{0,20})?['\"][AIza[0-9a-z\\-_]{35}]['\"]'''
-  tags = ["key", "Google", "GCP"]
+description = "Password in URL"
+regex = '''[a-zA-Z]{3,10}:\/\/[^\/\s:@]{3,20}:[^\/\s:@]{3,20}@.{1,100}\/?.?'''
+tags = ["key", "URL", "generic"]
 
 [[rules]]
-  description = "Google OAuth"
-  regex = '''(?i)(google|gcp|auth)(.{0,20})?['"][0-9]+-[0-9a-z_]{32}\.apps\.googleusercontent\.com['"]'''
-  tags = ["key", "Google", "OAuth"]
+description = "Artifactory API key"
+regex = '''(?:\s|=|:|"|^)AKC[a-zA-Z0-9]{10,}'''
+tags = ["key", "artifactory"]
 
 [[rules]]
-  description = "Google OAuth access token"
-  regex = '''ya29\.[0-9A-Za-z\-_]+'''
-  tags = ["key", "Google", "OAuth"]
+description = "Artifactory Password"
+regex = '''(?:\s|=|:|"|^)AP[\dABCDEF][a-zA-Z0-9]{8,}'''
+tags = ["key", "artifactory"]
 
 [[rules]]
-  description = "Password in URL"
-  regex = '''[a-zA-Z]{3,10}:\/\/[^\/\s:@]{3,20}:[^\/\s:@]{3,20}@.{1,100}\/?.?'''
-  tags = ["key", "URL", "generic"]
+description = "Basic Auth"
+regex = '''(?i)basic [a-zA-Z0-9_\\:\\.=]+'''
+tags = ["credential", "auth"]
 
 [[rules]]
-  description = "Artifactory API key"
-  regex = '''(?:\s|=|:|"|^)AKC[a-zA-Z0-9]{10,}'''
-  tags = ["key", "artifactory"]
+description = "Bearer Auth"
+regex = '''(?i)bearer [a-zA-Z0-9_\\-\\.=]+'''
+tags = ["credential", "auth"]
 
 [[rules]]
-  description = "Artifactory Password"
-  regex = '''(?:\s|=|:|"|^)AP[\dABCDEF][a-zA-Z0-9]{8,}'''
-  tags = ["key", "artifactory"]
+description = "Base32"
+regex = '''(?:[A-Z2-7]{8})*(?:[A-Z2-7]{2}={6}|[A-Z2-7]{4}={4}|[A-Z2-7]{5}={3}|[A-Z2-7]{7}=)?'''
+tags = ["base"]
 
 [[rules]]
-  description = "Basic Auth"
-  regex = '''(?i)basic [a-zA-Z0-9_\\-:\\.=]+'''
-  tags = ["credential", "auth"]
+description = "Base64"
+regex = '''(eyJ|YTo|Tzo|PD[89]|aHR0cHM6L|aHR0cDo|rO0)[a-zA-Z0-9+\/]+={0,2}'''
+tags = ["base"]
 
 [[rules]]
-  description = "Bearer Auth"
-  regex = '''(?i)bearer [a-zA-Z0-9_\\-\\.=]+'''
-  tags = ["credential", "auth"]
+description = "Generic API token"
+regex = '''(?i)(apiToken|apiTokens)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
+tags = ["key", "token", "generic"]
 
 [[rules]]
-  description = "Base32"
-  regex = '''(?:[A-Z2-7]{8})*(?:[A-Z2-7]{2}={6}|[A-Z2-7]{4}={4}|[A-Z2-7]{5}={3}|[A-Z2-7]{7}=)?'''
-  tags = ["base"]
+description = "Password"
+regex = '''(?i)(()?pass(word)?)\W*[:=,]\W*.+$'''
+tags = ["credential", "password"]
 
 [[rules]]
-  description = "Base64"
-  regex = '''(eyJ|YTo|Tzo|PD[89]|aHR0cHM6L|aHR0cDo|rO0)[a-zA-Z0-9+/]+={0,2}'''
-  tags = ["base"]
+description = "IP Address"
+regex = '''^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'''
+tags = ["ip", "ip Address"]
 
 [[rules]]
-  description = "Basic Auth Credentials"
-  regex = '''(?<=:\/\/)[a-zA-Z0-9]+:[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+'''
-  tags = ["credential"]
-
-[[rules]]
-  description = "Generic API token"
-  regex = '''(?i)(apiToken|apiTokens)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
-  tags = ["key", "token", "generic"]
-
-[[rules]]
-  description = "Password"
-  regex = '''(?i)(()?pass(word)?)\W*[:=,]\W*.+$'''
-  tags = ["credential", "password"]
+description = "Addresses"
+regex = '''https?:\/\/(w{3}\.)?.*.corp\/?$'''
+tags = ["addresses"]
 
 [allowlist]
-  description = "image allowlists"
-  files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''']
+description = "image allowlists"
+files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''']
