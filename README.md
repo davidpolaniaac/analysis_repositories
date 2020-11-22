@@ -34,6 +34,14 @@ configure environment variable according to platform, example for azure: devops
 
 ---
 
+in the words file it indicates the words by which the repositories will be filtered in list mode
+
+```
+test
+example
+
+```
+
 # Private repository
 
 ```bash
