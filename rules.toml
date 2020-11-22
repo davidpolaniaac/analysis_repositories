@@ -290,11 +290,6 @@ regex = '''(?i)bearer [a-zA-Z0-9_\\-\\.=]+'''
 tags = ["credential", "auth"]
 
 [[rules]]
-description = "Base32"
-regex = '''(?:[A-Z2-7]{8})*(?:[A-Z2-7]{2}={6}|[A-Z2-7]{4}={4}|[A-Z2-7]{5}={3}|[A-Z2-7]{7}=)?'''
-tags = ["base"]
-
-[[rules]]
 description = "Base64"
 regex = '''(eyJ|YTo|Tzo|PD[89]|aHR0cHM6L|aHR0cDo|rO0)[a-zA-Z0-9+\/]+={0,2}'''
 tags = ["base"]
@@ -321,4 +316,19 @@ tags = ["addresses"]
 
 [allowlist]
 description = "image allowlists"
-files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''']
+files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''',
+    '''(.*?)(package-lock.json)$''',
+    '''(package-lock.json)$''',
+    '''(.*?)(node_modules)(.*?)'''
+]
+
+[whitelist]
+files = [
+    "(.*?)(jpg|gif|doc|pdf|bin)$",
+    "package-lock.json",
+    "(.*?)(package-lock.json)$",
+    "(package-lock.json)$",
+    "node_modules/(.*)",
+    "(.*?)(node_modules)(.*?)",
+]
+repos = []
